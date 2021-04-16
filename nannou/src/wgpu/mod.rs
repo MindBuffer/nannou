@@ -54,16 +54,16 @@ pub use self::texture::{
 #[doc(inline)]
 pub use wgpu_upstream::{
     util::{self, BufferInitDescriptor},
-    vertex_attr_array, Adapter, AdapterInfo, AddressMode, Backend, BackendBit, BindGroup,
-    BindGroupDescriptor, BindGroupEntry, BindGroupLayout, BindGroupLayoutDescriptor,
-    BindGroupLayoutEntry, BindingResource, BindingType, BlendDescriptor, BlendFactor,
-    BlendOperation, Buffer, BufferAddress, BufferAsyncError, BufferCopyView, BufferDescriptor,
-    BufferSlice, BufferUsage, BufferView, Color, ColorStateDescriptor, ColorWrite, CommandBuffer,
-    CommandBufferDescriptor, CommandEncoder, CommandEncoderDescriptor, CompareFunction,
-    ComputePass, ComputePipeline, ComputePipelineDescriptor, CullMode, DepthStencilStateDescriptor,
-    Device, DeviceDescriptor, DeviceType, DynamicOffset, Extent3d, Features, FilterMode, FrontFace,
-    IndexFormat, InputStepMode, Instance, Limits, LoadOp, Maintain, MapMode, Operations, Origin3d,
-    PipelineLayout, PipelineLayoutDescriptor, PowerPreference, PresentMode, PrimitiveTopology,
+    vertex_attr_array, Adapter, AddressMode, Backend, BackendBit, BindGroup, BindGroupDescriptor,
+    BindGroupEntry, BindGroupLayout, BindGroupLayoutDescriptor, BindGroupLayoutEntry,
+    BindingResource, BindingType, BlendDescriptor, BlendFactor, BlendOperation, Buffer,
+    BufferAddress, BufferAsyncError, BufferCopyView, BufferDescriptor, BufferSlice, BufferUsage,
+    BufferView, Color, ColorStateDescriptor, ColorWrite, CommandBuffer, CommandBufferDescriptor,
+    CommandEncoder, CommandEncoderDescriptor, CompareFunction, ComputePass, ComputePipeline,
+    ComputePipelineDescriptor, CullMode, DepthStencilStateDescriptor, Device, DeviceDescriptor,
+    DynamicOffset, Extent3d, Features, FilterMode, FrontFace, IndexFormat, InputStepMode, Instance,
+    Limits, LoadOp, Maintain, MapMode, Operations, Origin3d, PipelineLayout,
+    PipelineLayoutDescriptor, PowerPreference, PresentMode, PrimitiveTopology,
     ProgrammableStageDescriptor, Queue, RasterizationStateDescriptor, RenderPass,
     RenderPassColorAttachmentDescriptor, RenderPassDepthStencilAttachmentDescriptor,
     RenderPassDescriptor, RenderPipeline, RenderPipelineDescriptor, RequestAdapterOptions, Sampler,
@@ -76,6 +76,9 @@ pub use wgpu_upstream::{
     VertexStateDescriptor, BIND_BUFFER_ALIGNMENT, COPY_BUFFER_ALIGNMENT,
     COPY_BYTES_PER_ROW_ALIGNMENT,
 };
+#[cfg(not(target_arch = "wasm32"))]
+#[doc(inline)]
+pub use wgpu_upstream::{AdapterInfo, DeviceType};
 
 pub fn shader_from_spirv_bytes(
     device: &wgpu_upstream::Device,

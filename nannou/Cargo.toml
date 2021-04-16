@@ -12,6 +12,7 @@ edition = "2018"
 
 [features]
 default = ["notosans"]
+wasm-experimental = ["winit/web-sys"]
 
 [dependencies]
 cgmath = { version = "0.17", features = ["serde"] }
@@ -38,3 +39,4 @@ toml = "0.5"
 walkdir = "2"
 wgpu_upstream = { version = "0.6.2", package = "wgpu" }
 winit = "0.24"
+web-sys = "=0.3.39"
