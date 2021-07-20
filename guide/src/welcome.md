@@ -31,6 +31,8 @@ A suite of tutorials demonstrating how to do different things with Nannou. For
 example, "How do I output sounds?", "How do I draw shapes?", "How can I connect
 to my laser?"
 
+	- [Community Tutorials](/community_tutorials.md)
+
 ### [Developer Reference](/developer_reference.md)
 
 Learn more about the design philosophy behind Nannou, how the project is
