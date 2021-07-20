@@ -974,6 +974,18 @@ impl Renderer {
         let attachment = frame.texture_view();
         let resolve_target = None;
         let mut command_encoder = frame.command_encoder();
+
+        // Ensure background is cleared on first frame if no clear specified.
+        // A previously cleared frame is required for wgpu::LoadOp::Load.
+        if frame.nth() == 0 {
+            let bg_color = draw.state.borrow().background_color;
+            if bg_color.is_none() {
+                if let Ok(mut state) = draw.state.try_borrow_mut() {
+                    state.background_color = Some(Default::default());
+                }
+            }
+        }
+
         self.encode_render_pass(
             device,
             &mut *command_encoder,
