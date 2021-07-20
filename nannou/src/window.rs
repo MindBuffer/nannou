@@ -1001,6 +1001,7 @@ impl<'app> Builder<'app> {
     ///
     /// NOTE: Drag and drop requires multi-threaded COM, which can interfere with
     /// other crates such as `cpal` and `nannou_audio` on the same thread.
+    #[allow(unused_variables)]
     pub fn windowsos_drag_and_drop(self, drag_and_drop: bool) -> Self {
         #[cfg(target_os = "windows")]
         {
